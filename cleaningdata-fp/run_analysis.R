@@ -93,6 +93,5 @@ full_df_grouped <- full_df %>%
 #Take a look at the resulting dataframe
 View(full_df_grouped)
 
-#Write the dataframe to csv file
-write.csv(full_df_grouped, file = "tidydata.csv")
-
+#Write the dataframe to txt file
+write.table(full_df_grouped, file = "tidydata.txt", row.name=FALSE)
