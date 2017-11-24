@@ -9,4 +9,4 @@ get_activity_name.R, get_col_from_file.R are 2 files that contain helper functio
 run_analysis.R is the main file that should be run, the other 2 R files should be in the same working directory as
 run_analysis.R as they are sourced inside run_analysis.R
 
-
+The smartlab data, obtained from the course should aslo be in the same working directory as run_analysis.R file.
