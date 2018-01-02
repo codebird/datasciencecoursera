@@ -15,5 +15,11 @@ hist(subData$Global_active_power*2/1000,
      xlab = "Global Active Power(kilowatts)",
      main = "Global Active Power")
 
-with(subData, plot(DateTime, Global_active_power*2/1000, ylab="Global Active Power (kilowatts)", type="n"))
+with(subData, plot(DateTime, Global_active_power*2/1000, ylab = "Global Active Power (kilowatts)", type="n"))
 with(subData, lines(DateTime, Global_active_power*2/1000))
+
+with(subData, plot(DateTime, Sub_metering_1, ylab = "Energy Sub metering", type="n"))
+with(subData, lines(DateTime, Sub_metering_1, col = "black"))
+with(subData, lines(DateTime, Sub_metering_2, col = "red"))
+with(subData, lines(DateTime, Sub_metering_3, col = "blue"))
+legend(pch = "_", "topright", col = c("black", "red", "blue"), legend = c("Sub_metering1", "Sub_metering2", "Sub_metering3"))
