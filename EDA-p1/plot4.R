@@ -17,26 +17,6 @@ subData$Sub_metering_3 <- as.numeric(subData$Sub_metering_3)
 subData$DateTime <- strptime(
   paste(subData$Date, subData$Time, sep = " "),
   "%Y-%m-%d %H:%M:%S")
-#plot 1
-png("plot1.png")
-hist(subData$Global_active_power*2/1000, 
-     col = "red", 
-     xlab = "Global Active Power(kilowatts)",
-     main = "Global Active Power")
-dev.off()
-#plot 2
-png("plot2.png")
-with(subData, plot(DateTime, Global_active_power*2/1000, ylab = "Global Active Power (kilowatts)", type="n"))
-with(subData, lines(DateTime, Global_active_power*2/1000))
-dev.off()
-#plot 3
-png("plot3.png")
-with(subData, plot(DateTime, Sub_metering_1, ylab = "Energy Sub metering", type="n"))
-with(subData, lines(DateTime, Sub_metering_1, col = "black"))
-with(subData, lines(DateTime, Sub_metering_2, col = "red"))
-with(subData, lines(DateTime, Sub_metering_3, col = "blue"))
-legend(pch = "_", "topright", col = c("black", "red", "blue"), legend = c("Sub_metering1", "Sub_metering2", "Sub_metering3"))
-dev.off()
 #plot 4
 png("plot4.png")
 par(mfrow = c(2,2), mar=c(4,4,2,2))
