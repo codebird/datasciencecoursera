@@ -18,7 +18,7 @@ subData$DateTime <- strptime(
   paste(subData$Date, subData$Time, sep = " "),
   "%Y-%m-%d %H:%M:%S")
 #plot 2
-png("plot2.png")
+png("plot2.png", width = 480, height = 480)
 with(subData, plot(DateTime, Global_active_power*2/1000, ylab = "Global Active Power (kilowatts)", type="n"))
 with(subData, lines(DateTime, Global_active_power*2/1000))
 dev.off()

@@ -18,7 +18,7 @@ subData$DateTime <- strptime(
   paste(subData$Date, subData$Time, sep = " "),
   "%Y-%m-%d %H:%M:%S")
 #plot 3
-png("plot3.png")
+png("plot3.png", width = 480, height = 480)
 with(subData, plot(DateTime, Sub_metering_1, ylab = "Energy Sub metering", type="n"))
 with(subData, lines(DateTime, Sub_metering_1, col = "black"))
 with(subData, lines(DateTime, Sub_metering_2, col = "red"))
