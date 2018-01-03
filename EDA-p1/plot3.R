@@ -7,20 +7,20 @@ data$Time <- format(strptime(data$Time, "%H:%M:%S"),"%H:%M:%S")
 #Subset the data to take only dates of interest
 subData <- subset(data, Date >= as.Date('2007-02-01') & Date <= as.Date('2007-02-02'))
 #Transform the remaining stuff to numeric type
-subData$Global_active_power <- as.numeric(subData$Global_active_power)
-subData$Voltage <- as.numeric(subData$Voltage)
-subData$Global_reactive_power <- as.numeric(subData$Global_reactive_power)
-subData$Sub_metering_1 <- as.numeric(subData$Sub_metering_1)
-subData$Sub_metering_2 <- as.numeric(subData$Sub_metering_2)
-subData$Sub_metering_3 <- as.numeric(subData$Sub_metering_3)
+subData$Global_active_power <- as.numeric(as.character(subData$Global_active_power))
+subData$Voltage <- as.numeric(as.character(subData$Voltage))
+subData$Global_reactive_power <- as.numeric(as.character(subData$Global_reactive_power))
+subData$Sub_metering_1 <- as.numeric(as.character(subData$Sub_metering_1))
+subData$Sub_metering_2 <- as.numeric(as.character(subData$Sub_metering_2))
+subData$Sub_metering_3 <- as.numeric(as.character(subData$Sub_metering_3))
 #Create a new column datetime which a concatenation of date and time columns
 subData$DateTime <- strptime(
   paste(subData$Date, subData$Time, sep = " "),
   "%Y-%m-%d %H:%M:%S")
 #plot 3
 png("plot3.png", width = 480, height = 480, units = "px")
-with(subData, plot(DateTime, Sub_metering_1, ylab = "Energy Sub metering", col="black", type="l"))
+with(subData, plot(DateTime, Sub_metering_1, ylab = "Energy Sub metering", type="l", col = "black"))
 with(subData, lines(DateTime, Sub_metering_2, col = "red"))
 with(subData, lines(DateTime, Sub_metering_3, col = "blue"))
-legend("topright", lty = 1, lwd=2, col = c("black", "red", "blue"), legend = c("Sub_metering1", "Sub_metering2", "Sub_metering3"))
+legend(pch = "_", "topright", col = c("black", "red", "blue"), legend = c("Sub_metering1", "Sub_metering2", "Sub_metering3"))
 dev.off()
