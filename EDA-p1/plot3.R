@@ -19,8 +19,7 @@ subData$DateTime <- strptime(
   "%Y-%m-%d %H:%M:%S")
 #plot 3
 png("plot3.png", width = 480, height = 480, units = "px")
-with(subData, plot(DateTime, Sub_metering_1, ylab = "Energy Sub metering", type="l"))
-with(subData, lines(DateTime, Sub_metering_1, col = "black"))
+with(subData, plot(DateTime, Sub_metering_1, ylab = "Energy Sub metering", col="black", type="l"))
 with(subData, lines(DateTime, Sub_metering_2, col = "red"))
 with(subData, lines(DateTime, Sub_metering_3, col = "blue"))
 legend("topright", lty = 1, lwd=2, col = c("black", "red", "blue"), legend = c("Sub_metering1", "Sub_metering2", "Sub_metering3"))
