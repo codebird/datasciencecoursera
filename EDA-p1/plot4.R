@@ -18,7 +18,7 @@ subData$DateTime <- strptime(
   paste(subData$Date, subData$Time, sep = " "),
   "%Y-%m-%d %H:%M:%S")
 #plot 4
-png("plot4.png", width = 480, height = 480)
+png("plot4.png", width = 480, height = 480, units = "px")
 par(mfrow = c(2,2), mar=c(4,4,2,2))
 with(subData, plot(DateTime, Global_active_power*2/1000, xlab="", ylab = "Global Active Power", type="n"))
 with(subData, lines(DateTime, Global_active_power*2/1000))
@@ -30,7 +30,7 @@ with(subData, plot(DateTime, Sub_metering_1, xlab="", ylab = "Energy Sub meterin
 with(subData, lines(DateTime, Sub_metering_1, col = "black"))
 with(subData, lines(DateTime, Sub_metering_2, col = "red"))
 with(subData, lines(DateTime, Sub_metering_3, col = "blue"))
-legend(pch = "_", "topright", col = c("black", "red", "blue"), legend = c("Sub_metering1", "Sub_metering2", "Sub_metering3"))
+legend("topright", lty = 1, lwd=2, col = c("black", "red", "blue"), legend = c("Sub_metering1", "Sub_metering2", "Sub_metering3"))
 
 with(subData, plot(DateTime, Global_reactive_power * 2/1000, ylab = "Voltage", xlab="datetime", type="n"))
 with(subData, lines(DateTime, Global_reactive_power * 2/1000))
