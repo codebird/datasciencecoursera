@@ -1,16 +1,16 @@
 library(jpeg)
 library(dplyr)
 library(Hmisc)
-download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv", destfile = "ss.csv")
+#download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv", destfile = "ss.csv")
 df <- read.csv("ss.csv")
 which(df$ACR == 3 & df$AGS == 6)
-download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fjeff.jpg", destfile = "jeff.jpg")
+#download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fjeff.jpg", destfile = "jeff.jpg")
 
 img <- readJPEG('jeff.jpg', native = TRUE)
 quantile(img, c(0.3, 0.8))
 
-download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv", destfile = "gdp.csv")
-download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv", destfile = "fedstats.csv")
+#download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv", destfile = "gdp.csv")
+#download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv", destfile = "fedstats.csv")
 gdp <- read.csv('gdp.csv', skip=3, nrows=191)
 gdp <- gdp[c(2:191),]
 gdp <- mutate(gdp, Ranking = as.integer(Ranking))
